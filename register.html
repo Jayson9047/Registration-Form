@@ -1,0 +1,112 @@
+<!DOCTYPE>
+<!--
+	This script demonstrates a form that uses GET method to be submitted to a virtual server "testRequest.asp". This script validates the user's information. And if all
+	the given information is correct it submits the form.The form is only submitted when the user clicks on the "Register" button. When a submission is requested by the user
+	the script checks if all the given input is valid or not. The form doesn't get submitted until all the fields are filled up with valid syntax.
+-->
+<html>
+	<head>
+		<title>SET Registration</title>
+		
+		
+		
+		
+		<link rel="stylesheet" href="style.css">
+	<head>
+	<body>
+	
+	<div id="newForm">
+		<h1 align="center"> SET Registration </h1>
+		<br><br>
+	<Form name="registration" action="http://10.175.100.100/testRequest.asp" method="GET" onsubmit="return validate();">
+		<table>
+		<tr> 
+			<td><b>First and Last Name:</b></td>
+			<td><input type="text" name ="registerName" id="regName" placeholder="John Smith"/></td>
+			<td><div id="nameError" style="color:red;"></div></td>
+			
+		</tr>
+		<tr>
+			<td><b>Street Address:</b></td>
+			<td><input type="text" size="40" id="streetName" name="registerAddress" placeholder="123 Any Street"/></td>
+			<td><div id="streetError" style="color:red;"></div></td>
+		</tr>
+		<tr>
+			<td><b>City:</b></td>
+			<td><input type="text" id="cityName" name="registerCity" placeholder="London"/></td>
+			<td><div id="cityError" style="color:red;"></div></td>
+		</tr>
+		<tr>
+			<td><b>Province: </b></td>
+			<td><select name="selectProvince">
+					<option value="0"></option>
+					<option value="AB">Alberta</option>
+					<option value="BC">British Columbia</option>
+					<option value="MB">Manitoba</option>
+					<option value="NB">New Brunswick</option>
+					<option value="NL">NewFoundland and Labrador</option>
+					<option value="NS">Nova Scotia</option>
+					<option value="NT">Northwest Territories</option>
+					<option value="NU">Nunavut</option>
+					<option value="ON">Ontario</option>
+					<option value="PE">Prince Edward Island</option>
+					<option value="QC">Quebec</option>
+					<option value="SK">Saskatchewan</option>
+					<option value="YT">Yukon</option>
+				</select></td>
+			<td><div id="provinceError" style="color:red;"></div></td>
+		</tr>
+		<tr>
+			<td><b>Postal Code: </b></td>
+			<td><input type="text" id="pc" name="registerPC" size="6" style='text-transform:uppercase' maxlength="6"/></td>
+			<td><div id="pcError" style="color:red;"></div></td>
+		</tr>
+
+		
+		
+		</table>
+		<br><b>Are you a Student or a Faculty member?</b><br>
+		<table width="600">
+		<tr>
+		<td align="left"><input type="radio" id="Student" name="member" value="student" onchange="uncheckFaculty();"/><b>Student</b></td>
+		<td align="left"><input type="radio" id="Faculty" name="member" value="faculty" onChange="uncheckStudent();"/><b>Faculty</b></td>
+		<td align="left" width="300"><div id="memberError" style="color:red;"></div></td>
+		</tr>
+		</table>
+
+		<table hidden name="facultyTable" id = "choice">
+		<tr> 
+		<td>
+			<br><b>Choose all that applies to you:</b><br><br>
+			<INPUT type="checkbox" name="facultyChoices" id="ch1" value="1">Teach in Engineeering<br>
+			<INPUT type="checkbox" name="facultyChoices" id="ch2" value="2">Drive Car to Work<br>
+			<INPUT type="checkbox" name="facultyChoices" id="ch3" value="3">Bring Lunch</td>
+		</tr>
+		</table>
+		
+		<table hidden name="studentTable" id = "choice1">
+		<tr> 
+		<td>
+			<br><b>Choose all that applies to you:</b><br><br>
+			<INPUT type="checkbox" name="studentChoices" id="ch1" value="1">Study in Information Technology <br>
+			<INPUT type="checkbox" name="studentChoices" id="ch2" value="2">Own a Laptop Computer<br>
+			<INPUT type="checkbox" name="studentChoices" id="ch3" value="3">Take a Bus to School<br>
+			<INPUT type="checkbox" name="studentChoices" id="ch4" value="4">Enjoys Web Design and Development </td>
+		</tr>
+		</table>
+		<br>
+
+		<input type="submit" id="submitForm" class="submitClass" value="Register"/>
+		<input type="reset" id="resetForm" class="resetClass" value="Clear Form"/>
+		
+
+		
+	</Form>
+
+</div>
+
+<script type="text/javascript" src="formValidation.js"></script>
+	</body>
+			
+</html>
+	
